@@ -1,0 +1,11 @@
+{
+  "id": "lesson-basic-vertical-edges",
+  "title": "Chaining faces to edges",
+  "model": "cube_40mm.py",
+  "snippet": "result = cq.Workplane('XY').box(40, 40, 40)",
+  "goal": "Select the vertical edges around the cube.",
+  "startingSelection": ".faces('|Z').edges()",
+  "solution": ".faces('|Z').edges()",
+  "notes": ["The |Z selector finds faces parallel to Z, then edges() walks to their edges"],
+  "hints": ["Think about the orientation of the side faces"]
+}

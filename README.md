@@ -232,6 +232,66 @@ When filing a bug report [issue](https://github.com/CadQuery/cadquery/issues), p
 
 If you find yourself wishing for a feature that does not exist, you are probably not alone. There are bound to be others out there with similar needs. Open an [issue](https://github.com/CadQuery/cadquery/issues) which describes the feature you would like to see, why you need it, and how it should work.
 
+## CadQuery Selection Tutorial
+
+This repository now includes a full-stack tutorial for learning CadQuery selectors. The project lives under the `web/` and `tutorial/` directories and provides:
+
+- A FastAPI backend that compiles CadQuery models, evaluates selection expressions, and streams glTF meshes to the client.
+- A React + Vite front-end with react-three-fiber visualisation, Tailwind styling, Zustand state management, and shadcn-inspired UI components.
+
+### Quick start
+
+Run both services with Docker Compose (hot reload is enabled for local files):
+
+```bash
+docker-compose up --build
+```
+
+Backend API: http://localhost:8000/docs — provides OpenAPI docs and lets you exercise endpoints such as `/api/model/compile` and `/api/selection/run`.
+
+Front-end playground: http://localhost:5173 — explore lessons and the selection playground. Use `H` to toggle highlight-only mode and `Ctrl/Cmd + Enter` to re-run selectors quickly.
+
+### Backend development
+
+The backend source lives in `tutorial/`. Key directories include:
+
+- `tutorial/fastapi_app.py` – FastAPI entry point and route definitions.
+- `tutorial/cq_examples/` – CadQuery sample models used in lessons and the playground.
+- `tutorial/data/lessons/` – JSON lessons that drive the interactive walkthrough.
+- `tutorial/sandbox/` – Safe execution helpers for user-provided code and selection parsing.
+
+Install dependencies and run tests locally:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r tutorial/requirements.txt
+pytest tutorial/tests
+```
+
+### Front-end development
+
+The React application lives in `web/`. Install dependencies and launch the dev server:
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+The client proxies API calls to `http://localhost:8000` during development.
+
+### Adding new lessons or models
+
+1. Add a CadQuery example script under `tutorial/cq_examples/` that defines a `result` Workplane or shape.
+2. Create a matching lesson JSON file inside `tutorial/data/lessons/` (follow the existing schema).
+3. Restart the backend or trigger a reload; lessons are read dynamically at runtime.
+
+### Testing
+
+- `make test` runs the backend pytest suite (selection parser safeguards and helpers).
+- Future enhancements can add Playwright UI coverage under `web/`.
+
 ## Citing
 
 Please use our Zenodo DOI if you use CadQuery for scientific research: https://doi.org/10.5281/zenodo.3955118.

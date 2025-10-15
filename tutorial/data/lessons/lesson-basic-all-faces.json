@@ -1,0 +1,11 @@
+{
+  "id": "lesson-basic-all-faces",
+  "title": "Selecting all faces",
+  "model": "cube_40mm.py",
+  "snippet": "result = cq.Workplane('XY').box(40, 40, 40)",
+  "goal": "Select every face of the cube.",
+  "startingSelection": ".faces()",
+  "solution": ".faces()",
+  "notes": ["Using faces() with no filter grabs all faces on the workplane"],
+  "hints": ["Try the most generic selector available"]
+}

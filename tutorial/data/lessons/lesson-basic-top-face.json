@@ -1,0 +1,11 @@
+{
+  "id": "lesson-basic-top-face",
+  "title": "Directional face selection",
+  "model": "cube_40mm.py",
+  "snippet": "result = cq.Workplane('XY').box(40, 40, 40)",
+  "goal": "Select only the top face.",
+  "startingSelection": ".faces('>Z')",
+  "solution": ".faces('>Z')",
+  "notes": ["Use direction symbols like >Z to pick faces with normals pointing in +Z"],
+  "hints": ["Which face points upward?"]
+}
