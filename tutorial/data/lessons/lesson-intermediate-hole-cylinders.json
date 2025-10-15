@@ -1,0 +1,11 @@
+{
+  "id": "lesson-intermediate-hole-cylinders",
+  "title": "Selecting hole side faces",
+  "model": "plate_with_holes.py",
+  "snippet": "holes = [(x, y) for x in [-20, 0, 20] for y in [-20, 0, 20]]\nresult = (\n    cq.Workplane('XY')\n    .box(80, 80, 10)\n    .faces('>Z')\n    .workplane()\n    .pushPoints(holes)\n    .hole(6)\n)",
+  "goal": "Highlight the cylindrical faces created by the drilled holes.",
+  "startingSelection": ".faces('|Z')",
+  "solution": ".faces(cq.selectors.RadiusSelector((0, 4)))",
+  "notes": ["RadiusSelector lets you capture cylindrical faces within a range"],
+  "hints": ["The hole radius is 3 mm"]
+}
