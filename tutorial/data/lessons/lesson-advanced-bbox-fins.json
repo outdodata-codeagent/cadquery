@@ -1,0 +1,11 @@
+{
+  "id": "lesson-advanced-bbox-fins",
+  "title": "Bounding box filtering",
+  "model": "heatsink_block.py",
+  "snippet": "fin_count = 6\nfin_spacing = 8\nfin_width = 3\nfin_height = 20\nbase = cq.Workplane('XY').box(60, 40, 6)\n\nfins = (\n    cq.Workplane('XY')\n    .transformed(offset=(0, 0, 6))\n    .rarray(fin_spacing, 1, fin_count, 1)\n    .rect(fin_width, 38)\n    .extrude(fin_height)\n)\n\nresult = base.union(fins)",
+  "goal": "Select only the thin fin side faces above the base.",
+  "startingSelection": ".faces('|Z')",
+  "solution": ".faces(cq.selectors.BoxSelector((-35, -25, 6), (35, 25, 28)))",
+  "notes": ["BoxSelector clips selections to a region of interest"],
+  "hints": ["Limit the Z range to avoid the base faces"]
+}
