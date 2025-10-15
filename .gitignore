@@ -38,6 +38,6 @@ out1.3mf
 out2.3mf
 out3.3mf
 orig.dxf
-web/node_modules
-web/dist
+tutorial/web/node_modules
+tutorial/web/dist
 tutorial/.cache

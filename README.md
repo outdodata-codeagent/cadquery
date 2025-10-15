@@ -234,7 +234,7 @@ If you find yourself wishing for a feature that does not exist, you are probably
 
 ## CadQuery Selection Tutorial
 
-This repository now includes a full-stack tutorial for learning CadQuery selectors. The project lives under the `web/` and `tutorial/` directories and provides:
+This repository now includes a full-stack tutorial for learning CadQuery selectors. The project lives entirely under the `tutorial/` directory—FastAPI backend code alongside the front-end found in `tutorial/web/`—and provides:
 
 - A FastAPI backend that compiles CadQuery models, evaluates selection expressions, and streams glTF meshes to the client.
 - A React + Vite front-end with react-three-fiber visualisation, Tailwind styling, Zustand state management, and shadcn-inspired UI components.
@@ -271,10 +271,10 @@ pytest tutorial/tests
 
 ### Front-end development
 
-The React application lives in `web/`. Install dependencies and launch the dev server:
+The React application lives in `tutorial/web/`. Install dependencies and launch the dev server:
 
 ```bash
-cd web
+cd tutorial/web
 npm install
 npm run dev
 ```
@@ -290,7 +290,7 @@ The client proxies API calls to `http://localhost:8000` during development.
 ### Testing
 
 - `make test` runs the backend pytest suite (selection parser safeguards and helpers).
-- Future enhancements can add Playwright UI coverage under `web/`.
+- Future enhancements can add Playwright UI coverage under `tutorial/web/`.
 
 ## Citing
 

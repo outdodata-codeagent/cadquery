@@ -2,8 +2,8 @@ version: '3.9'
 services:
   tutorial-api:
     build:
-      context: .
-      dockerfile: tutorial/Dockerfile
+      context: ./tutorial
+      dockerfile: Dockerfile
     volumes:
       - ./tutorial:/app
     ports:
