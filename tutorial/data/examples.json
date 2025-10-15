@@ -1,0 +1,13 @@
+{
+  "examples": [
+    {"id": "cube_40mm.py", "name": "40 mm Cube", "tags": ["basic", "faces"]},
+    {"id": "cylinder_stack.py", "name": "Cylinder Stack", "tags": ["cylinders", "faces"]},
+    {"id": "plate_with_holes.py", "name": "Perforated Plate", "tags": ["holes", "grid"]},
+    {"id": "l_bracket.py", "name": "L Bracket", "tags": ["bracket", "holes"]},
+    {"id": "gear_like_wheel.py", "name": "Gear-like Wheel", "tags": ["radial", "cutouts"]},
+    {"id": "countersunk_plate.py", "name": "Countersunk Plate", "tags": ["countersink", "faces"]},
+    {"id": "heatsink_block.py", "name": "Heatsink Block", "tags": ["fins", "thermal"]},
+    {"id": "pocket_block.py", "name": "Pocketed Block", "tags": ["pockets", "steps"]},
+    {"id": "assembly_fixture.py", "name": "Fixture Assembly", "tags": ["assembly", "posts"]}
+  ]
+}

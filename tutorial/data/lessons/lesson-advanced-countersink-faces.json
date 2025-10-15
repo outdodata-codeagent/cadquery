@@ -1,0 +1,11 @@
+{
+  "id": "lesson-advanced-countersink-faces",
+  "title": "Countersink detection",
+  "model": "countersunk_plate.py",
+  "snippet": "result = (\n    cq.Workplane('XY')\n    .box(100, 60, 12)\n    .faces('>Z')\n    .workplane()\n    .pushPoints([(-30, -20), (-30, 20), (30, -20), (30, 20)])\n    .cskHole(6, 12, 90)\n)",
+  "goal": "Select the conical countersink faces.",
+  "startingSelection": ".faces()",
+  "solution": ".faces(cq.selectors.ConeSelector((10, 14)))",
+  "notes": ["ConeSelector matches faces with a conical surface and radius range"],
+  "hints": ["The countersink major diameter is 12 mm"]
+}

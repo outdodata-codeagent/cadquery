@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  tutorial-api:
+    build:
+      context: .
+      dockerfile: tutorial/Dockerfile
+    volumes:
+      - ./tutorial:/app
+    ports:
+      - '8000:8000'
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    volumes:
+      - ./web:/app
+    ports:
+      - '5173:5173'
+    depends_on:
+      - tutorial-api
