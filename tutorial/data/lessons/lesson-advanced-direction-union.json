@@ -1,0 +1,11 @@
+{
+  "id": "lesson-advanced-direction-union",
+  "title": "Combining directional selectors",
+  "model": "cylinder_stack.py",
+  "snippet": "result = (\n    cq.Workplane('XY')\n    .cylinder(20, 40)\n    .faces('>Z')\n    .workplane()\n    .circle(10)\n    .extrude(20)\n)",
+  "goal": "Select both top and bottom faces of the stack.",
+  "startingSelection": ".faces()",
+  "solution": ".faces(cq.selectors.OrSelector(cq.selectors.DirectionSelector('>Z'), cq.selectors.DirectionSelector('<Z')))",
+  "notes": ["OrSelector merges two direction filters"],
+  "hints": ["Combine +Z and -Z normals"]
+}

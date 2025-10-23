@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  tutorial-api:
+    build:
+      context: ./tutorial
+      dockerfile: Dockerfile
+    volumes:
+      - ./tutorial:/app
+    ports:
+      - '8000:8000'
+  web:
+    build:
+      context: ./tutorial
+      dockerfile: web/Dockerfile
+    volumes:
+      - ./tutorial/web:/app
+      - /app/node_modules
+    ports:
+      - '5173:5173'
+    depends_on:
+      - tutorial-api
+    command: >-
+      sh -c "npm install && npm run dev -- --host 0.0.0.0"

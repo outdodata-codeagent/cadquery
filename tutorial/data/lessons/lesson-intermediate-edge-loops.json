@@ -1,0 +1,11 @@
+{
+  "id": "lesson-intermediate-edge-loops",
+  "title": "Selecting hole edge loops",
+  "model": "l_bracket.py",
+  "snippet": "result = (\n    cq.Workplane('XY')\n    .box(80, 10, 60)\n    .faces('<Y')\n    .workplane()\n    .rect(80, 10)\n    .extrude(60)\n    .faces('>Z')\n    .workplane()\n    .pushPoints([(-30, 0), (30, 0)])\n    .hole(6)\n)",
+  "goal": "Grab the circular edge loops around the mounting holes.",
+  "startingSelection": ".faces('>Z').edges()",
+  "solution": ".faces('>Z').edges(cq.selectors.RadiusSelector((0, 5)))",
+  "notes": ["Edge selections can also leverage RadiusSelector"],
+  "hints": ["Filter out the long perimeter edges"]
+}

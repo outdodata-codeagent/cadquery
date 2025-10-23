@@ -1,0 +1,11 @@
+{
+  "id": "lesson-intermediate-pocket-floors",
+  "title": "Selecting pocket floors",
+  "model": "pocket_block.py",
+  "snippet": "result = (\n    cq.Workplane('XY')\n    .box(80, 50, 20)\n    .faces('>Z')\n    .workplane()\n    .rect(60, 30)\n    .cutBlind(-10)\n    .faces('>Z')\n    .workplane(offset=-5)\n    .rect(30, 15)\n    .cutBlind(-5)\n)",
+  "goal": "Pick the two horizontal pocket floors inside the block.",
+  "startingSelection": ".faces('>Z')",
+  "solution": ".faces(cq.selectors.AreaSelector((800, 2000)))",
+  "notes": ["AreaSelector is handy when pockets share orientation but have smaller surfaces"],
+  "hints": ["Use an area range smaller than the top face"]
+}

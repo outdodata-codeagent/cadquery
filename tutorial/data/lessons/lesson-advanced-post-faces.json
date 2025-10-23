@@ -1,0 +1,11 @@
+{
+  "id": "lesson-advanced-post-faces",
+  "title": "Selecting mounting posts",
+  "model": "assembly_fixture.py",
+  "snippet": "base = cq.Workplane('XY').box(120, 60, 12)\npost = (\n    cq.Workplane('XY')\n    .workplane(offset=6)\n    .pushPoints([(-40, -20), (-40, 20), (40, -20), (40, 20)])\n    .circle(6)\n    .extrude(30)\n)\n\ntop = (\n    cq.Workplane('XY')\n    .workplane(offset=42)\n    .rect(80, 40)\n    .extrude(6)\n)\n\nresult = base.union(post).union(top)",
+  "goal": "Highlight the cylindrical side faces of the four posts.",
+  "startingSelection": ".faces('|Z')",
+  "solution": ".faces(cq.selectors.AndSelector(cq.selectors.RadiusSelector((5, 7)), cq.selectors.BoxSelector((-60, -40, 6), (60, 40, 45))))",
+  "notes": ["Selectors can be composed with AndSelector for precise matches"],
+  "hints": ["Combine radius filtering with a bounding box"]
+}
